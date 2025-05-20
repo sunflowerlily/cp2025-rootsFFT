@@ -202,19 +202,19 @@ def plot_lagrange_equation(r_min, r_max, num_points=1000):
     fig, ax = plt.subplots(figsize=(10, 6))
     
     # 绘制函数曲线
-    ax.plot(r_values / 1e8, f_values, 'b-', label='L1点位置方程')
+    ax.plot(r_values / 1e8, f_values, 'b-', label='L1 point equation')
     
     # 标记零点
     for r_zero in r_zeros:
-        ax.plot(r_zero / 1e8, 0, 'ro', label=f'零点: {r_zero:.4e} m')
+        ax.plot(r_zero / 1e8, 0, 'ro', label=f'Zero point: {r_zero:.4e} m')
     
     # 添加水平和垂直参考线
     ax.axhline(y=0, color='k', linestyle='--', alpha=0.3)
     
     # 设置坐标轴标签和标题
-    ax.set_xlabel('距地心距离 (10^8 m)')
-    ax.set_ylabel('方程值')
-    ax.set_title('L1拉格朗日点位置方程')
+    ax.set_xlabel('Distance from Earth center (10^8 m)')
+    ax.set_ylabel('Equation value')
+    ax.set_title('L1 Lagrange Point Equation')
     
     # 添加图例，只显示一次
     handles, labels = ax.get_legend_handles_labels()
