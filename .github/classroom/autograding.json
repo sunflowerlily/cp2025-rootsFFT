@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "项目1：薛定谔方程",
+      "setup": "",
+      "run": "cd 薛定谔方程 && python -m pytest tests/test_schrodinger.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "项目2：拉格朗日点",
+      "setup": "",
+      "run": "cd 拉格朗日点 && python -m pytest tests/test_lagrange.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "项目3：探测周期性",
+      "setup": "",
+      "run": "cd 探测周期性 && python -m pytest tests/test_periodicity.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "项目4：傅立叶滤波和平滑",
+      "setup": "",
+      "run": "cd 傅立叶滤波和平滑 && python -m pytest tests/test_fourier_filter.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    },
+    {
+      "name": "项目5：白炽灯的温度",
+      "setup": "",
+      "run": "cd 白炽灯的温度 && python -m pytest tests/test_incandescent_lamp.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    }
+  ]
+}
