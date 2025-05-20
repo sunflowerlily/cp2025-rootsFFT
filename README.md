@@ -38,7 +38,6 @@
 numpy
 scipy
 matplotlib
-pandas
 pytest
 ```
 
