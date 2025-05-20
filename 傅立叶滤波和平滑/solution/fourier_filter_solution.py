@@ -20,7 +20,7 @@ def load_data(filename):
         numpy.ndarray: 指数数组
     """
     try:
-        filepath = "/Users/lixh/Library/CloudStorage/OneDrive-个人/Code/cp2025-rootsFFT-1/傅立叶滤波和平滑/dow.txt"
+        filepath = "dow.txt"
         return np.loadtxt(filepath)
     except Exception as e:
         print(f"加载数据时出错: {str(e)}")
@@ -36,8 +36,9 @@ def plot_data(data, title="Dow Jones Industrial Average"):
     plt.xlabel("Trading Day")
     plt.ylabel("Index Value")
     plt.grid(True, alpha=0.3)
-    return fig  # 确保返回Figure对象
     plt.show()
+    return fig  # 确保返回Figure对象
+
 
 def fourier_filter(data, keep_fraction=0.1):
     """
@@ -77,8 +78,9 @@ def plot_comparison(original, filtered, title="Fourier Filter Result"):
     plt.ylabel("Index Value")
     plt.legend()
     plt.grid(True, alpha=0.3)
-    return fig  # 确保返回Figure对象
     plt.show()
+    return fig  # 确保返回Figure对象
+
 
 def main():
     # 任务1：数据加载与可视化
@@ -88,10 +90,11 @@ def main():
     # 任务2：傅立叶变换与滤波（保留前10%系数）
     filtered_10, coeff = fourier_filter(data, 0.1)
     plot_comparison(data, filtered_10, "Fourier Filter (Keep Top 10% Coefficients)")
-    
+
     # 任务3：修改滤波参数（保留前2%系数）
     filtered_2, _ = fourier_filter(data, 0.02)
     plot_comparison(data, filtered_2, "Fourier Filter (Keep Top 2% Coefficients)")
+    
 
 if __name__ == "__main__":
     main()
