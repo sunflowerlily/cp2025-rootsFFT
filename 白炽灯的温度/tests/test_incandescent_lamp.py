@@ -11,8 +11,9 @@ from scipy.integrate import quad
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from solution.incandescent_lamp_solution import (
-#from incandescent_lamp_student import (
+
+#from solution.incandescent_lamp_solution import (
+from incandescent_lamp_student import (
     planck_law,
     calculate_visible_power_ratio,
     find_optimal_temperature,

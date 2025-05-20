@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 # 添加父目录到模块搜索路径，以便导入学生代码
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from solution.fourier_filter_solution import load_data, plot_data, fourier_filter, plot_comparison
-#from fourier_filter_student import load_data, plot_data, fourier_filter, plot_comparison
+#from solution.fourier_filter_solution import load_data, plot_data, fourier_filter, plot_comparison
+from fourier_filter_student import load_data, plot_data, fourier_filter, plot_comparison
 
 class TestFourierFilter(unittest.TestCase):
     """测试傅立叶滤波和平滑的实现"""

@@ -12,8 +12,8 @@ import sys
 # 添加父目录到模块搜索路径，以便导入学生代码
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from solution.sunspot_solution import (
-#from sunspot_student import (
+#from solution.sunspot_solution import (
+from sunspot_student import (
     load_sunspot_data,
     compute_power_spectrum,
     find_main_period
