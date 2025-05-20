@@ -19,7 +19,7 @@ TESTS = [
      "file": "拉格朗日点/tests/test_lagrange.py", 
      "points": 10},
     {"name": "项目3: 探测周期性", 
-     "file": "探测周期性/tests/test_periodicity.py", 
+     "file": "探测周期性/tests/test_sunspot.py", 
      "points": 10},
     {"name": "项目4: 傅立叶滤波和平滑", 
      "file": "傅立叶滤波和平滑/tests/test_fourier_filter.py", 
