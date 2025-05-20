@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GitHub Classroom 自动评分脚本 - 数值微分和积分实验
+GitHub Classroom 自动评分脚本 - 傅立叶变换，解方程和求极值
 """
 
 import os
@@ -10,19 +10,22 @@ import subprocess
 import pytest
 from pathlib import Path
 
-# 更新测试配置以匹配数值微分和积分项目结构
+# 更新测试配置以匹配傅立叶变换，解方程和求极值项目结构
 TESTS = [
-    {"name": "实验四: 超新星哈勃常数拟合", 
-     "file": "Supernova_Hubble_Fitting/tests/test_supernova_hubble_fitting.py", 
+    {"name": "项目1: 薛定谔方程", 
+     "file": "薛定谔方程/tests/test_schrodinger.py", 
      "points": 10},
-    {"name": "实验二: 原子核中子共振散射数据拟合", 
-     "file": "拟合: 原子核中子共振散射数据分析/tests/test_neutron_resonance_fitting.py", 
+    {"name": "项目2: 拉格朗日点", 
+     "file": "拉格朗日点/tests/test_lagrange.py", 
      "points": 10},
-    {"name": "实验一: 原子核中子共振散射数据插值", 
-     "file": "插值: 原子核中子共振散射数据分析/tests/test_neutron_resonance_interpolation.py", 
+    {"name": "项目3: 探测周期性", 
+     "file": "探测周期性/tests/test_periodicity.py", 
      "points": 10},
-    {"name": "实验三: 细菌生长实验数据拟合", 
-     "file": "细菌生长实验数据拟合/tests/test_bacterial_growth.py", 
+    {"name": "项目4: 傅立叶滤波和平滑", 
+     "file": "傅立叶滤波和平滑/tests/test_fourier_filter.py", 
+     "points": 10},
+    {"name": "项目5: 白炽灯的温度", 
+     "file": "白炽灯的温度/tests/test_incandescent_lamp.py", 
      "points": 10}
 ]
 

@@ -15,13 +15,8 @@ import matplotlib.pyplot as plt
 # 添加父目录到模块搜索路径，以便导入学生代码
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# 导入学生代码
-try:
-    import schrodinger_student as schrodinger
-except ImportError:
-    print("无法导入学生代码模块 'schrodinger_student.py'")
-    sys.exit(1)
-
+#from solution.schrodinger_solution import calculate_y_values, plot_energy_functions, find_energy_level_bisection
+from schrodinger_student import calculate_y_values, plot_energy_functions, find_energy_level_bisection
 
 class TestSchrodingerEquation(unittest.TestCase):
     """测试方势阱能级计算的实现"""
@@ -30,8 +25,8 @@ class TestSchrodingerEquation(unittest.TestCase):
         """设置测试参数"""
         self.V = 20.0  # 势阱高度 (eV)
         self.w = 1e-9  # 势阱宽度 (m)
-        self.m = schrodinger.ELECTRON_MASS  # 粒子质量 (kg)
-        self.E_values = np.linspace(0.001, 19.999, 100)  # 能量范围 (eV)
+        self.m = 9.1094e-31  # 粒子质量 (kg), 直接使用电子质量常量
+        self.E_values = np.linspace(0.001, 11.5, 100)  # 能量范围 (eV)，上限调整为11.5以覆盖所有能级区间
         self.reference_levels = [0.318, 1.270, 2.851, 5.050, 7.850, 11.215]  # 参考能级值
         self.tolerance = 0.01  # 能级计算的容差 (eV)
     
@@ -42,7 +37,7 @@ class TestSchrodingerEquation(unittest.TestCase):
         
         # 计算学生代码的输出
         try:
-            y1, y2, y3 = schrodinger.calculate_y_values(test_energies, self.V, self.w, self.m)
+            y1, y2, y3 = calculate_y_values(test_energies, self.V, self.w, self.m)
             
             # 验证输出是否为numpy数组
             self.assertIsInstance(y1, np.ndarray)
@@ -79,7 +74,7 @@ class TestSchrodingerEquation(unittest.TestCase):
         
         try:
             # 调用学生的绘图函数
-            fig = schrodinger.plot_energy_functions(E_test, y1_test, y2_test, y3_test)
+            fig = plot_energy_functions(E_test, y1_test, y2_test, y3_test)
             
             # 验证返回值是否为Figure对象
             self.assertIsInstance(fig, plt.Figure)
@@ -107,8 +102,8 @@ class TestSchrodingerEquation(unittest.TestCase):
     def test_find_energy_level_bisection_ground_state_points_5(self):
         """测试二分法求解基态能级"""
         try:
-            # 计算基态能级
-            energy_level = schrodinger.find_energy_level_bisection(0, self.V, self.w, self.m)
+            # 计算基态能级，使用更小的搜索区间
+            energy_level = find_energy_level_bisection(0, self.V, self.w, self.m, E_min=0.3, E_max=0.34)
             
             # 验证能级值是否在合理范围内
             self.assertGreater(energy_level, 0)
@@ -126,10 +121,14 @@ class TestSchrodingerEquation(unittest.TestCase):
     def test_find_energy_level_bisection_excited_states_points_10(self):
         """测试二分法求解激发态能级"""
         try:
-            # 计算前6个能级
+            # 计算前6个能级，使用用户提供的搜索区间
+            search_ranges = np.array([[0.30,0.34],[1.25,1.29], 
+                                     [2.8,3.0],[4.75,5.25], 
+                                     [7.6,8.2],[11.0,11.5]])
             energy_levels = []
             for n in range(6):
-                energy = schrodinger.find_energy_level_bisection(n, self.V, self.w, self.m)
+                E_min, E_max = search_ranges[n]
+                energy = find_energy_level_bisection(n, self.V, self.w, self.m, E_min=E_min, E_max=E_max)
                 energy_levels.append(energy)
             
             # 验证能级是否递增

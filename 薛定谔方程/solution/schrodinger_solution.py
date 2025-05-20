@@ -81,9 +81,9 @@ def plot_energy_functions(E_values, y1, y2, y3):
     ax.set_ylim(-10, 10)
     
     # 添加标签和标题
-    ax.set_xlabel('能量 E (eV)')
-    ax.set_ylabel('函数值')
-    ax.set_title('方势阱能级方程')
+    ax.set_xlabel('Energy E (eV)')
+    ax.set_ylabel('Function value')
+    ax.set_title('Square Potential Well Energy Levels')
     ax.legend()
     ax.grid(True, alpha=0.3)
     
